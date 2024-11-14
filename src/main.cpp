@@ -4,31 +4,28 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <wex.h>
-#include "cStarterGUI.h"
+#include "cSO79187422.h"
 
-class cGUI : public cStarterGUI
+void test1()
 {
-public:
-    cGUI()
-        : cStarterGUI(
-              "Starter",
-              {50, 50, 1000, 500}),
-          lb(wex::maker::make < wex::label >(fm))
-    {
-        lb.move(50, 50, 100, 30);
-        lb.text("Hello World");
+    cSO79187422 L;
 
-        show();
-        run();
-    }
+    // Add A and B
+    L.addEnd( sElement("A"));
+    L.addEnd( sElement("B"));
+    L.text();
 
-private:
-    wex::label &lb;
-};
+    // Add C at 1th pos
+    L.addAt(1,sElement("C"));
+    L.text();
+
+    // Move A to 1
+    L.move(L.find(sElement("A")),1);
+    L.text();
+}
 
 main()
 {
-    cGUI theGUI;
+    test1();
     return 0;
 }
